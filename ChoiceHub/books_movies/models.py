@@ -1,79 +1,21 @@
 from django.db import models
 
 class Book(models.Model):
-    GENRE_CHOICES = [
-        ('mystery', 'Mystery/Thriller'),
-        ('scifi', 'Science Fiction/Fantasy'),
-        ('romance', 'Romance'),
-        ('historical', 'Historical Fiction'),
-    ]
-    PACE_CHOICES = [
-        ('fast', 'Fast-paced'),
-        ('medium', 'Medium-paced'),
-        ('slow', 'Slow-paced'),
-        ('any', 'It doesn’t matter'),
-    ]
-    CHARACTER_CHOICES = [
-        ('hero', 'Brave hero/heroine'),
-        ('underdog', 'Underdog'),
-        ('complex', 'Morally complex'),
-        ('dreamer', 'Dreamer/visionary'),
-    ]
-    ENDING_CHOICES = [
-        ('happy', 'Happy ending'),
-        ('bittersweet', 'Bittersweet ending'),
-        ('cliffhanger', 'Cliffhanger'),
-        ('open', 'Open-ended'),
-    ]
-    SETTING_CHOICES = [
-        ('dystopian', 'Dystopian world'),
-        ('magical', 'Magical land'),
-        ('historical', 'Historical time period'),
-        ('contemporary', 'Contemporary, real-world setting'),
-    ]
-    LENGTH_CHOICES = [
-        ('short', 'Short (under 200 pages)'),
-        ('medium', 'Medium (200-400 pages)'),
-        ('long', 'Long (400-600 pages)'),
-        ('very_long', 'Very long (over 600 pages)'),
-    ]
-    EMOTIONAL_TONE_CHOICES = [
-        ('lighthearted', 'Light-hearted'),
-        ('dark', 'Dark and intense'),
-        ('inspirational', 'Inspirational'),
-        ('emotional', 'Emotional and heartfelt'),
-    ]
-    ROMANCE_CHOICES = [
-        ('yes', 'Yes, I love it'),
-        ('moderate', 'Yes, but in moderation'),
-        ('minimal', 'Minimal romance'),
-        ('none', 'No romance at all'),
-    ]
-    NARRATIVE_STYLE_CHOICES = [
-        ('first_person', 'First-person'),
-        ('third_person', 'Third-person'),
-        ('multiple_povs', 'Multiple points of view'),
-        ('epistolary', 'Epistolary (letters, diary entries, etc.)'),
-    ]
-    WORLD_BUILDING_IMPORTANCE_CHOICES = [
-        ('extremely', 'Extremely important'),
-        ('somewhat', 'Somewhat important'),
-        ('not_very', 'Not very important'),
-        ('not_at_all', 'Not important at all'),
-    ]
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
+    genre = models.CharField(max_length=100)
+    themes = models.CharField(max_length=200, blank=True)
+    character_vs_plot = models.CharField(max_length=50, choices=[('Character', 'Character-driven'), ('Plot', 'Plot-driven')], blank=True)
+    writing_style = models.CharField(max_length=100, blank=True)
+    setting = models.CharField(max_length=200, blank=True)
+    mood = models.CharField(max_length=100, blank=True)
+    api_source = models.CharField(max_length=100, default="Unknown")  # To track the source API
+    
+    # New fields
+    cover_image = models.URLField(max_length=500, blank=True, null=True)  # Store URL of the cover image
+    description = models.TextField(blank=True)  # Store detailed description
+    reviews = models.TextField(blank=True, default="Not-available")  # Store reviews
+    buy_link = models.URLField(max_length=500, blank=True, default="Not-available")  # Store URL for purchasing the book
 
-    title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
-    genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
-    length = models.CharField(max_length=50, choices=LENGTH_CHOICES)
-    pace = models.CharField(max_length=50, choices=PACE_CHOICES)
-    character = models.CharField(max_length=50, choices=CHARACTER_CHOICES)
-    ending = models.CharField(max_length=50, choices=ENDING_CHOICES)
-    setting = models.CharField(max_length=50, choices=SETTING_CHOICES)
-    emotional_tone = models.CharField(max_length=50, choices=EMOTIONAL_TONE_CHOICES)
-    romance = models.CharField(max_length=50, choices=ROMANCE_CHOICES)
-    narrative_style = models.CharField(max_length=50, choices=NARRATIVE_STYLE_CHOICES)
-    world_building_importance = models.CharField(max_length=50, choices=WORLD_BUILDING_IMPORTANCE_CHOICES)
-
-    def _str_(self):
+    def __str__(self):
         return self.title
