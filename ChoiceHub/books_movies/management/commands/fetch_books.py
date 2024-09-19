@@ -1,3 +1,5 @@
+# books/management/commands/fetch_books.py
+
 import requests
 from django.core.management.base import BaseCommand
 from books_movies.models import Book
@@ -17,7 +19,7 @@ class Command(BaseCommand):
         for genre in genres:
             start_index = 0
             total_items = float('inf')
-            
+
             while start_index < total_items:
                 api_url = f"https://www.googleapis.com/books/v1/volumes?q=subject:{genre.replace(' ', '+')}&startIndex={start_index}&maxResults={max_results_per_request}"
                 response = requests.get(api_url)
@@ -25,56 +27,50 @@ class Command(BaseCommand):
                 if response.status_code == 200:
                     books_data = response.json()
                     total_items = books_data.get('totalItems', 0)
-                    
+
                     if total_items == 0:
                         break
-                    
+
                     for item in books_data.get('items', []):
-                        book_info = item['volumeInfo']
-                        title = book_info.get('title', 'Unknown Title')
-                        author = ', '.join(book_info.get('authors', ['Unknown Author']))
-                        book_genre = ', '.join(book_info.get('categories', ['Unknown Genre']))
-                        description = book_info.get('description', '')
-                        
-                        # Fetch higher quality cover image, if available
-                        image_links = book_info.get('imageLinks', {})
-                        cover_image = image_links.get('extraLarge', '') or \
-                                      image_links.get('large', '') or \
-                                      image_links.get('medium', '') or \
-                                      image_links.get('thumbnail', '')
+                        volume_info = item['volumeInfo']
+                        title = volume_info.get('title', '')
+                        author = ', '.join(volume_info.get('authors', []))
+                        book_genre = volume_info.get('categories', ['unknown'])[0]
+                        description = volume_info.get('description', '')
 
-                        # Fetch reviews if available (Google Books might not provide reviews, so placeholder is used)
-                        reviews = book_info.get('averageRating', 'Not-available')
+                        # Populate new fields
+                        length = 'medium'  # Adjust as necessary
+                        pace = 'medium'    # Adjust as necessary
+                        character = 'hero' # Adjust as necessary
+                        ending = 'open'    # Adjust as necessary
+                        setting = 'contemporary'  # Adjust as necessary
+                        emotional_tone = 'lighthearted'  # Adjust as necessary
+                        romance = 'none'  # Adjust as necessary
+                        narrative_style = 'third_person'  # Adjust as necessary
+                        world_building_importance = 'somewhat'  # Adjust as necessary
 
-                        # Fetch buy link if available, otherwise 'Not-available'
-                        buy_link = item.get('saleInfo', {}).get('buyLink', 'Not-available')
-
-                        # Logic to derive other details
-                        themes = description[:200] if description else 'Not-available'
-                        character_vs_plot = 'Character' if 'character' in description.lower() else 'Plot'
-                        writing_style = 'Fast-paced' if len(description) < 500 else 'Descriptive'
-                        setting = 'Unknown'
-                        mood = 'Dark' if 'mystery' in description.lower() else 'Light-hearted'
-
-                        # Check if the book already exists in the database
                         book_exists = Book.objects.filter(title=title, author=author).exists()
 
                         if not book_exists:
-                            # Create a new book record
                             Book.objects.create(
                                 title=title,
                                 author=author,
                                 genre=book_genre,
-                                themes=themes,
-                                character_vs_plot=character_vs_plot,
-                                writing_style=writing_style,
+                                themes=description[:200],  # Using a portion of the description for themes.
+                                character_vs_plot='Character' if 'character' in description.lower() else 'Plot',
+                                writing_style='Fast-paced' if len(description) < 500 else 'Descriptive',
                                 setting=setting,
-                                mood=mood,
-                                api_source='Google Books API',
-                                cover_image=cover_image,  # Store high-quality cover image
-                                description=description,
-                                reviews=reviews,  # Store real reviews or placeholder
-                                buy_link=buy_link  # Store buy link or 'Not-available'
+                                mood='Dark' if 'mystery' in description.lower() else 'Light-hearted',
+                                cover_image=volume_info.get('imageLinks', {}).get('thumbnail', ''),
+                                length=length,
+                                pace=pace,
+                                character=character,
+                                ending=ending,
+                                emotional_tone=emotional_tone,
+                                romance=romance,
+                                narrative_style=narrative_style,
+                                world_building_importance=world_building_importance,
+                                api_source='Google Books API'
                             )
                             self.stdout.write(self.style.SUCCESS(f'Successfully added book: {title}'))
                         else:

@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,9 @@
                 Writing Style: {{ book.writing_style }}<br>
                 Setting: {{ book.setting }}<br>
                 Mood: {{ book.mood }}<br>
+                world: {{ book.world_building_importance }}<br>
+                <!-- cover_image: {{ book.cover_image }}<br> -->
+                <img src="{{ book.cover_image }}" alt=""> <br>
             </li>
         {% endfor %}
     </ul>
