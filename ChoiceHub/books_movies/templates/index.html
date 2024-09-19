@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+
+    <!-- Include Slick CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <!-- Local CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1 class="heading">ChoiceHub</h1>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Quizzes</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Glass Box -->
+        <div class="glass-box">
+            <div class="large-text">
+                <h1>Stop Searching,<br> Start Enjoying</h1>
+            </div>
+            
+            <div class="btn-group">
+                <a href="{% url 'register' %}" class="btn">Register</a>
+            </div>
+            
+
+            <div class="quiz-options">
+                <a href="" class="quiz-option book-quiz">Book Quiz</a>
+                <a href="#" class="quiz-option movie-quiz">Movie Quiz</a>
+                <a href="#" class="quiz-option series-quiz">Series Quiz</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Books Section with Slider -->
+    <section class="recommended-slider">
+        <div class="book_recommend">
+            <h2>OUR RECOMMENDATION FOR BOOKS</h2>
+            <div class="book-slider">
+                <div class="book">
+                    <img src="{% static 'images/books/book1.png' %}?v=2" alt="Book 1">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/books/book2.png' %}?v=2" alt="Book 2">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/books/book3.png' %}?v=2" alt="Book 3">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/books/book1.png' %}?v=2" alt="Book 4">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/books/book2.png' %}?v=2" alt="Book 5">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/books/book3.png' %}?v=2" alt="Book 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Section -->
+    <section class="additional-section">
+        <img src="{% static 'images/extras/sharee.png' %}?v=2" alt="image" class="add_img">
+        <p>Explore our top picks based on your preferences and interests.</p>
+    </section>
+
+    <!-- Recommended Movies Section with Slider -->
+    <section class="recommended-slider">
+        <div class="movie_recommend">
+            <h2>OUR RECOMMENDATION FOR MOVIES</h2>
+            <div class="book-slider">
+                <div class="book">
+                    <img src="{% static 'images/movies/movie1.png' %}?v=2" alt="Movie 1">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/movies/movie2.png' %}?v=2" alt="Movie 2">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/movies/movie3.png' %}?v=2" alt="Movie 3">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/movies/movie1.png' %}?v=2" alt="Movie 4">
+                </div>
+                <div class="book">
+                    <img src="{% static 'images/movies/movie3.png' %}?v=2" alt="Movie 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="additional-section">
+    </section>
+
+    <!-- Recommended Web Series Section -->
+    <section class="recommended-slider">
+        <h2>OUR RECOMMENDATION FOR WEB SERIES</h2>
+        <div class="book-slider">
+            <div class="book">
+                <img src="{% static 'images/movies/movie1.png' %}" alt="Web Series 1">
+            </div>
+            <div class="book">
+                <img src="{% static 'images/movies/movie2.png' %}" alt="Web Series 2">
+            </div>
+            <div class="book">
+                <img src="{% static 'images/movies/movie3.png' %}" alt="Web Series 3">
+            </div>
+            <div class="book">
+                <img src="{% static 'images/movies/movie1.png' %}" alt="Web Series 4">
+            </div>
+            <div class="book">
+                <img src="{% static 'images/movies/movie3.png' %}" alt="Web Series 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+    </footer>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Slick JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+    <!-- Local JS File -->
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    <script src="{% static 'js/script.js' %}?v=2"></script>
+</body>
+</html>

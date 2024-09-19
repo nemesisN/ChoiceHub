@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 0; /* Corrected padding */
+    background-color: #000;
+}
+
+/* Container holding the glass box with background image */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url("/static/images/main_img/image.png") no-repeat center/cover fixed;
+    z-index: 1;
+}
+
+/* Glass Box Styles */
+.glass-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px) saturate(180%);
+    border-radius: 20px;
+    padding: 40px;
+    width: 750px;
+    height: 450px;
+    color: #e0e0e0;
+    z-index: 1;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0.8;
+}
+
+/* Large text inside the glass box */
+.large-text {
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+h1, h2 {
+    font-size: 42px; /* Reduced font size */
+    /* margin-bottom: 20px; */
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #f1f1f1;
+    padding: 12px 24px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0 20px 0 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.heading {
+    font-size: 25px;
+    color: #d0cbb5;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    position: relative;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::before {
+    width: 100%;
+}
+
+/* Recommended Slider Section */
+.recommended-slider {
+  
+    width: 100%;
+    background-color: #f9f4f0;
+    color: #fff;
+}
+
+.book_recommend{
+    padding: 0;
+    margin: 0;
+    background-color: #0b0a0a;
+}
+
+.movie_recommend{
+    padding: 0;
+    margin: 0;
+    background-color: #eee5d1;
+}
+
+.recommended-slider h2 {
+    font-size: 18px;  /* Adjust the size to fit your needs */
+    color: #a29e9b;
+    text-align: center;
+    padding: 30px 0px 0px;
+}
+
+.movie_recomend h2{
+    color: #6b5d5c;
+}
+
+.slick-dots {
+    background-color: #f9f4f0;
+    margin-bottom: -40px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.slick-prev, .slick-next {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-size: 20px;
+    color: #2b2929;
+}
+
+/* Style for slick dots */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #f9f4f0;
+    opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #f9f4f0;
+}
+
+/* Slider Items */
+.book-slider .slick-slide {
+    width: 180px !important;
+    padding: 0;
+}
+
+.book, .movie, .series {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+} 
+
+.book:hover, .movie:hover, .series:hover {
+    transform: scale(1.13);
+}
+
+.book img, .movie img, .series img {
+    width: 90%;
+    height: 230px;
+    margin-top: 40px;
+    padding: 10px;
+    margin-bottom: 70px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+/* Quiz options container */
+.quiz-options {
+    position: absolute;
+    bottom: -25px;
+    right: -80px;
+    display: flex;
+    gap: 20px;
+}
+
+.quiz-option {
+    color: #fff;
+    padding: 120px 60px;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-option:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Specific images for each quiz option */
+.book-quiz {
+    background-image: url('/static/images/main_img/28822156b225c4cf1c8d224f0cb42214.jpg');
+}
+
+.movie-quiz {
+    background-image: url('/static/images/main_img/58e96571acce841096995ad1e5d02cb6.jpg');
+}
+
+.series-quiz {
+    background-image: url('/static/images/main_img/ad234017c22389e023788b39bacdb908.jpg');
+}
+
+.book-quiz:hover, .movie-quiz:hover, .series-quiz:hover {
+    filter: brightness(1.2);
+}
+
+/* Additional Sections */
+.additional-section {
+    width: 100%;
+    height: 35rem;
+    background-color: #f9f4f0;
+    display: flex;
+    color: #000;
+}
+
+.additional-section img.add_img {
+    width: 30%;
+    height: auto;
+}
+
+.additional-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.additional-section p {
+    font-size: 16px;
+    max-width: 600px;
+}
+
+/* Footer Styles */
+.footer {
+    height: 300px;
+    width: 100%;
+    background-color: rgb(65, 65, 65);
+    text-align: center;
+    padding: 40px;
+}
+
+.footer p {
+    color: white;
+}

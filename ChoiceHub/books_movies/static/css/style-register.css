@@ -1,0 +1,151 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    background-color: #000000;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+/* Container holding the glass box with background image */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/main_img/image.png');
+    /* background: url('/static/images/main_img/image.png'); */
+    background-size: cover;
+}
+
+/* Glass Box Styles */
+.glass-box-register {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(200%);
+    border-radius: 30px;
+    padding: 50px;
+    width: 400px; /* Adjusted width to make it centered */
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Centering content inside the glass box */
+    opacity: 0.95;
+}
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Left align labels */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    outline: none;
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .glass-box-register {
+        width: 90%;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .form-group input {
+        font-size: 14px;
+    }
+}
+
+
+/* Navbar Styles */
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.heading {
+    font-size: 25px;
+    color: #d0cbb5;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    position: relative;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::before {
+    width: 100%;
+}
