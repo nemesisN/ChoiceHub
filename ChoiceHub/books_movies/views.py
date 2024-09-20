@@ -13,7 +13,7 @@ from .models import Book
 # View to display all books in the database
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'books_movies/book_list.html', {'books': books})
+    return render(request, 'book_list.html', {'books': books})
 
 from .models import Registration
 
