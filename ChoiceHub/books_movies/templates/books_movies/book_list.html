@@ -1,4 +1,3 @@
-{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
     <ul>
         {% for book in books %}
             <li>
+                <img src="{{ book.cover_image }}" alt="{{ book.title }} cover" style="width: 150px; height: auto;"><br>
                 <strong>{{ book.title }}</strong> by {{ book.author }}<br>
                 Genre: {{ book.genre }}<br>
                 Themes: {{ book.themes }}<br>
@@ -18,9 +18,7 @@
                 Writing Style: {{ book.writing_style }}<br>
                 Setting: {{ book.setting }}<br>
                 Mood: {{ book.mood }}<br>
-                world: {{ book.world_building_importance }}<br>
-                <!-- cover_image: {{ book.cover_image }}<br> -->
-                <img src="{{ book.cover_image }}" alt=""> <br>
+               
             </li>
         {% endfor %}
     </ul>

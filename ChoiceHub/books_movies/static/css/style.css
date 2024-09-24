@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    padding: 0; /* Corrected padding */
+    padding: 0;
     background-color: #000;
 }
 
@@ -53,8 +53,7 @@ body {
 }
 
 h1, h2 {
-    font-size: 42px; /* Reduced font size */
-    /* margin-bottom: 20px; */
+    font-size: 32px; /* Adjusted font size */
 }
 
 /* Button Group */
@@ -82,81 +81,90 @@ h1, h2 {
 }
 
 /* Navbar Styles */
+/* Updated Navbar Styles */
+/* Navbar Styles */
+/* Navbar Styles */
 .navbar {
     width: 100%;
     position: absolute;
     top: 0;
     padding: 12px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between heading and links */
+    align-items: center; /* Center items vertically */
     z-index: 2;
 }
 
 .heading {
     font-size: 25px;
     color: #d0cbb5;
+    margin-left: 30px; /* Keep the heading aligned to the left */
 }
 
-.navbar ul {
+.navbar-links {
     list-style: none;
     display: flex;
+    margin-right: 30px; /* Add margin to the right for spacing */
+    padding: 0;
 }
 
-.navbar ul li {
+.navbar-links li {
     margin: 0 10px;
 }
 
-.navbar ul li a {
+.navbar-links a {
     text-decoration: none;
     color: #fff;
     font-size: 10px;
     position: relative;
 }
 
-.navbar ul li a::before {
+.navbar-links a::before {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #fff;
+    background-color: #e9e4e4;
     bottom: 0;
     left: 0;
     transition: width 0.3s ease-in-out;
 }
 
-.navbar ul li a:hover::before {
+.navbar-links a:hover::before {
     width: 100%;
+}
+
+/* Additional Auth Button Styles */
+.auth-links a {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.auth-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Recommended Slider Section */
 .recommended-slider {
-  
     width: 100%;
     background-color: #f9f4f0;
     color: #fff;
 }
 
-.book_recommend{
+.book_recommend, .movie_recommend {
     padding: 0;
     margin: 0;
     background-color: #0b0a0a;
 }
 
-.movie_recommend{
-    padding: 0;
-    margin: 0;
-    background-color: #eee5d1;
-}
-
 .recommended-slider h2 {
-    font-size: 18px;  /* Adjust the size to fit your needs */
+    font-size: 18px; /* Adjust the size to fit your needs */
     color: #a29e9b;
     text-align: center;
     padding: 30px 0px 0px;
-}
-
-.movie_recomend h2{
-    color: #6b5d5c;
 }
 
 .slick-dots {

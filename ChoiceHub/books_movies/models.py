@@ -7,14 +7,13 @@ class Registration(models.Model):
     password = models.CharField(max_length=128)  # Store hashed password
 
     def save(self, *args, **kwargs):
-        # Hash the password before saving
-        if self.pk is None:  # Only hash if it's a new registration
+        # Ensure the password is hashed before saving
+        if not self.pk:  # If the object is being created for the first time
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.name} - {self.email}'
-
 
 
 class Book(models.Model):

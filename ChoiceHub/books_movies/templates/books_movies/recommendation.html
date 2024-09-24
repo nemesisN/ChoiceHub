@@ -1,0 +1,28 @@
+<!-- recommendation.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Books</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Books</h1>
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.volumeInfo.title }}</strong> by {{ book.volumeInfo.authors|join:", " }}
+                    <p>{{ book.volumeInfo.description }}</p>
+                    <p><strong>Genre:</strong> {{ book.volumeInfo.categories|join:", " }}</p>
+                    <p><strong>Page Count:</strong> {{ book.volumeInfo.pageCount }}</p>
+                </li>
+            {% empty %}
+                <li>No recommendations found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

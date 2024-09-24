@@ -10,10 +10,9 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
     background-color: #000000;
     overflow-x: hidden;
-    padding: 0;
 }
 
 /* Container holding the glass box with background image */
@@ -29,23 +28,22 @@ body {
 }
 
 /* Glass Box Styles */
-.glass-box-register {
+.glass-box-login {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px) saturate(200%);
     border-radius: 30px;
     padding: 50px;
-    width: 400px; /* Adjusted width to make it centered */
+    width: 400px;
     color: #f0f0f0;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    text-align: center; /* Centering content inside the glass box */
+    text-align: center;
     opacity: 0.95;
 }
-/* Form Styling */
-/* Form Styling */
+
 .form-group {
     margin-bottom: 20px;
-    text-align: left; /* Left align labels */
+    text-align: left;
 }
 
 .form-group label {
@@ -70,7 +68,6 @@ body {
     outline: none;
 }
 
-/* Button Styling */
 .btn {
     width: 100%;
     padding: 12px;
@@ -90,7 +87,7 @@ body {
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-    .glass-box-register {
+    .glass-box-login {
         width: 90%;
     }
 
@@ -102,7 +99,6 @@ body {
         font-size: 14px;
     }
 }
-
 
 /* Navbar Styles */
 .navbar {
