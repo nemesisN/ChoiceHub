@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password, make_password
-from .forms import QuizForm, LoginForm
+from .forms import LoginForm
 from .models import Book, Registration
 
 # View for the index page
@@ -66,3 +66,57 @@ def login_view(request):
 def logout_view(request):
     request.session.flush()  # Clear the session data to log out
     return redirect('login')  # Redirect to the login page after logout
+
+
+from django.shortcuts import render
+from .models import Book
+from django.shortcuts import render, redirect
+from .forms import BookPreferenceForm
+from .models import Book
+
+
+def book_quiz_view(request):
+    temp_db1 = list(Book.objects.all())  # Start with all books
+    temp_db2 = []
+
+    if request.method == 'POST':
+        form = BookPreferenceForm(request.POST)
+        
+        if form.is_valid():
+            answers = form.cleaned_data
+            
+            # Print the answers to debug
+            print("User Answers:", answers)
+            
+            for question, answer in answers.items():
+                print(f"Filtering by {question}: {answer}")  # Debugging statement
+                temp_db2 = []
+
+                # Check if the remaining books are 4 or fewer
+                # if len(temp_db1) <= 4:
+                #     print("Book count is 4 or fewer, stopping further filtering.")
+                #     break
+
+                for book in temp_db1:
+                    # print(getattr(book, question))
+                    if getattr(book, question) == answer:
+                        temp_db2.append(book)
+                
+                # After filtering, assign the new filtered list to temp_db1
+                if len(temp_db2) <= 4:
+                    print("Book count is 4 or fewer, stopping further filtering.")
+                    break
+                temp_db1 = temp_db2
+                print(f"Filtered Books: {temp_db1}")
+
+                # Again check if the remaining books are 4 or fewer
+            
+            # After filtering or stopping, render the final filtered book list
+            return render(request, 'books_movies/filtered_books.html', {'books': temp_db1})
+
+    else:
+        form = BookPreferenceForm()
+    
+    return render(request, 'books_movies/quiz.html', {'form': form})
+
+

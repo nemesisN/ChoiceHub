@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 from books_movies import views
-from .views import register
+from .views import register, book_quiz_view
 from .views import login_view, logout_view
 
 urlpatterns = [
@@ -25,4 +25,5 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('quiz/', book_quiz_view, name='quiz'),
 ]

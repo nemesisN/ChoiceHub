@@ -10,15 +10,21 @@
     <ul>
         {% for book in books %}
             <li>
-                <img src="{{ book.cover_image }}" alt="{{ book.title }} cover" style="width: 150px; height: auto;"><br>
+                <!-- <img src="{{ book.cover_image }}" alt="{{ book.title }} cover" style="width: 150px; height: auto;"><br> -->
                 <strong>{{ book.title }}</strong> by {{ book.author }}<br>
-                Genre: {{ book.genre }}<br>
+                <!-- Genre: {{ book.genre }}<br>
                 Themes: {{ book.themes }}<br>
                 Character vs Plot: {{ book.character_vs_plot }}<br>
                 Writing Style: {{ book.writing_style }}<br>
                 Setting: {{ book.setting }}<br>
                 Mood: {{ book.mood }}<br>
-               
+                length: {{ book.length }}<br>
+                pace: {{ book.pace }}<br>
+                ending: {{ book.ending }}<br>
+                emotional_tone: {{ book.emotional_tone }}<br>
+                romance: {{ book.romance }}<br>
+                narrative_style: {{ book.narrative_style }}<br>
+                world_building_importance: {{ book.world_building_importance }}<br> -->
             </li>
         {% endfor %}
     </ul>

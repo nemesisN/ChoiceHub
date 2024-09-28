@@ -43,7 +43,7 @@
             
             <div class="btn-group">
                 {% if not request.session.user_id or user.is_authenticated%}
-                <a href="{% url 'register' %}" class="btn">Register</a>
+                <a href="{% url 'login' %}" class="btn">Login</a>
             {% endif %}
             </div>
             

@@ -1,85 +1,156 @@
 from django import forms
 
-class QuizForm(forms.Form):
-    GENRE_CHOICES = [
-        ('mystery', 'Mystery/Thriller'),
-        ('scifi', 'Science Fiction/Fantasy'),
-        ('romance', 'Romance'),
-        ('historical', 'Historical Fiction'),
-    ]
-    PACE_CHOICES = [
-        ('fast', 'Fast-paced'),
-        ('medium', 'Medium-paced'),
-        ('slow', 'Slow-paced'),
-        ('any', 'It doesn’t matter'),
-    ]
-    CHARACTER_CHOICES = [
-        ('hero', 'Brave hero/heroine'),
-        ('underdog', 'Underdog'),
-        ('complex', 'Morally complex'),
-        ('dreamer', 'Dreamer/visionary'),
-    ]
-    ENDING_CHOICES = [
-        ('happy', 'Happy ending'),
-        ('bittersweet', 'Bittersweet ending'),
-        ('cliffhanger', 'Cliffhanger'),
-        ('open', 'Open-ended'),
-    ]
-    
-    # New questions
-    SETTING_CHOICES = [
-        ('dystopian', 'Dystopian world'),
-        ('magical', 'Magical land'),
-        ('historical', 'Historical time period'),
-        ('contemporary', 'Contemporary, real-world setting'),
-    ]
-    LENGTH_CHOICES = [
-        ('short', 'Short (under 200 pages)'),
-        ('medium', 'Medium (200-400 pages)'),
-        ('long', 'Long (400-600 pages)'),
-        ('very_long', 'Very long (over 600 pages)'),
-    ]
-    EMOTIONAL_TONE_CHOICES = [
-        ('lighthearted', 'Light-hearted'),
-        ('dark', 'Dark and intense'),
-        ('inspirational', 'Inspirational'),
-        ('emotional', 'Emotional and heartfelt'),
-    ]
-    ROMANCE_CHOICES = [
-        ('yes', 'Yes, I love it'),
-        ('moderate', 'Yes, but in moderation'),
-        ('minimal', 'Minimal romance'),
-        ('none', 'No romance at all'),
-    ]
-    NARRATIVE_STYLE_CHOICES = [
-        ('first_person', 'First-person'),
-        ('third_person', 'Third-person'),
-        ('multiple_povs', 'Multiple points of view'),
-        ('epistolary', 'Epistolary (letters, diary entries, etc.)'),
-    ]
-    WORLD_BUILDING_IMPORTANCE_CHOICES = [
-        ('extremely', 'Extremely important'),
-        ('somewhat', 'Somewhat important'),
-        ('not_very', 'Not very important'),
-        ('not_at_all', 'Not important at all'),
-    ]
-    
-    # Fields for new questions
-    genre = forms.ChoiceField(choices=GENRE_CHOICES)
-    pace = forms.ChoiceField(choices=PACE_CHOICES)
-    character = forms.ChoiceField(choices=CHARACTER_CHOICES)
-    ending = forms.ChoiceField(choices=ENDING_CHOICES)
-    setting = forms.ChoiceField(choices=SETTING_CHOICES)
-    length = forms.ChoiceField(choices=LENGTH_CHOICES)
-    emotional_tone = forms.ChoiceField(choices=EMOTIONAL_TONE_CHOICES)
-    romance = forms.ChoiceField(choices=ROMANCE_CHOICES)
-    narrative_style = forms.ChoiceField(choices=NARRATIVE_STYLE_CHOICES)
-    world_building_importance = forms.ChoiceField(choices=WORLD_BUILDING_IMPORTANCE_CHOICES)
-
-# forms.py
-
-# forms.py
 from django import forms
+
+class BookPreferenceForm(forms.Form):
+    genre = forms.ChoiceField(
+        label='What genre are you interested in?', 
+        choices=[
+            ('Philosophy', 'Philosophy'),
+            ('Art & Architecture', 'Art & Architecture'),
+            ('Non-fiction', 'Non-fiction'),
+            ('Art', 'Art'),
+            ('Biography & Autobiography', 'Biography & Autobiography'),
+            ('Fiction', 'Fiction'),
+            ('Social Science', 'Social Science'),
+            ('Drama', 'Drama'),
+            ('Music', 'Music'),
+            ('History', 'History'),
+            ('Art History', 'Art History'),
+            ('Education', 'Education'),
+            ('Cultural Studies', 'Cultural Studies'),
+            ('Poetry', 'Poetry'),
+            ('Art Instruction', 'Art Instruction'),
+            ('Photography', 'Photography'),
+            ('Environmental Studies', 'Environmental Studies'),
+            ('Self-help', 'Self-help'),
+            ('Children\'s Literature', 'Children\'s Literature'),
+            ('Reference', 'Reference'),
+            ('Travel', 'Travel'),
+            ('Science', 'Science'),
+            ('Neuroscience', 'Neuroscience'),
+            ('Art Therapy', 'Art Therapy')
+        ]
+    )
+
+    writing_style = forms.ChoiceField(
+        label='What type of writing style do you prefer?',
+        choices=[
+            ('Analytical', 'Analytical'),
+            ('Descriptive', 'Descriptive'),
+            ('Narrative', 'Narrative'),
+            ('Conversational', 'Conversational'),
+            ('Lyric', 'Lyric'),
+            ('Technical', 'Technical')
+        ]
+    )
+
+    setting = forms.ChoiceField(
+        label='What type of setting do you prefer?',
+        choices=[
+            ('Contemporary', 'Contemporary'),
+            ('Historical', 'Historical'),
+            ('Fairytale', 'Fairytale')
+        ]
+    )
+
+    mood = forms.ChoiceField(
+        label='What kind of mood are you looking for?',
+        choices=[
+            ('Reflective', 'Reflective'),
+            ('Engaging', 'Engaging'),
+            ('Serious', 'Serious'),
+            ('Light-hearted', 'Light-hearted'),
+            ('Thought-provoking', 'Thought-provoking'),
+            ('Inspirational', 'Inspirational'),
+            ('Dramatic', 'Dramatic'),
+            ('Bittersweet', 'Bittersweet'),
+            ('Hopeful', 'Hopeful'),
+            ('Informative', 'Informative'),
+            ('Critical', 'Critical'),
+            ('Joyful', 'Joyful'),
+            ('Dark', 'Dark'),
+            ('Nostalgic', 'Nostalgic'),
+            ('Educational', 'Educational')
+        ]
+    )
+
+    length = forms.ChoiceField(
+        label='What book length do you prefer?',
+        choices=[
+            ('Short (Under 100 pages)', 'Short (Under 100 pages)'),
+            ('Medium (100-300 pages)', 'Medium (100-300 pages)'),
+            ('Long (300-500 pages)', 'Long (300-500 pages)'),
+            ('Epic (Over 500 pages)', 'Epic (Over 500 pages)')
+        ]
+    )
+
+    pace = forms.ChoiceField(
+        label='Do you prefer fast-paced or slow-paced books?',
+        choices=[
+            ('Steady', 'Steady'),
+            ('Fast-paced', 'Fast-paced'),
+            ('Moderate', 'Moderate')
+        ]
+    )
+
+    ending = forms.ChoiceField(
+        label='What kind of ending do you prefer?',
+        choices=[
+            ('Open-ended', 'Open-ended'),
+            ('Conclusive', 'Conclusive'),
+            ('Ambiguous', 'Ambiguous')
+        ]
+    )
+
+    emotional_tone = forms.ChoiceField(
+        label='What kind of emotional tone do you prefer?',
+        choices=[
+            ('Thought-provoking', 'Thought-provoking'),
+            ('Inspirational', 'Inspirational'),
+            ('Hopeful', 'Hopeful'),
+            ('Bittersweet', 'Bittersweet'),
+            ('Informative', 'Informative'),
+            ('Dramatic', 'Dramatic'),
+            ('Joyful', 'Joyful'),
+            ('Melancholic', 'Melancholic'),
+            ('Neutral', 'Neutral'),
+            ('Educational', 'Educational'),
+            ('Nostalgic', 'Nostalgic'),
+            ('Philosophical', 'Philosophical'),
+            ('Intense', 'Intense')
+        ]
+    )
+
+    romance = forms.ChoiceField(
+        label='What level of romance do you prefer in a book?',
+        choices=[
+            ('Non-existent', 'Non-existent'),
+            ('Minimal', 'Minimal'),
+            ('Subplot', 'Subplot'),
+            ('Complicated', 'Complicated'),
+            ('Central to the plot', 'Central to the plot')
+        ]
+    )
+
+    narrative_style = forms.ChoiceField(
+        label='What narrative style do you prefer?',
+        choices=[
+            ('Third-person', 'Third-person'),
+            ('First-person', 'First-person'),
+            ('Second-person', 'Second-person')
+        ]
+    )
+
+    world_building_importance = forms.ChoiceField(
+        label='How important is world-building to you?',
+        choices=[
+            ('Low importance', 'Low importance'),
+            ('Moderate importance', 'Moderate importance'),
+            ('High importance', 'High importance')
+        ]
+    )
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label='Email', max_length=100)

@@ -1,0 +1,25 @@
+<!-- templates/filtered_books.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Books</title>
+</head>
+<body>
+    <h1>Recommended Books</h1>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <h2>{{ book.title }}</h2>
+                    <p><strong>Author:</strong> {{ book.author }}</p>
+                    <p><strong>Description:</strong> {{ book.description }}</p>
+                    <img src="{{ book.cover_image }}" alt="book cover">
+                    <!-- Add more book details as needed -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books found that match your preferences.</p>
+    {% endif %}
+</body>
+</html>
