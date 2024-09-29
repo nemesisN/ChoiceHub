@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url('/static/images/quiz/824c75d5d8baddac1e3ab99a48b77f36.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures the body takes up full viewport height */
+    margin: 0;
+}
+
+.quiz-container {
+    width: 900px;  /* Adjusted width for the container */
+    height: auto; /* Dynamic height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Keeps the cards in relative position */
+    perspective: 1000px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 30px;  /* Adjusted padding */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.6s ease, opacity 0.6s ease, top 0.6s ease;
+    width: 100%;
+    height: auto;  /* Makes the card height dynamic based on content */
+    position: absolute;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Vertically centers the content inside the card */
+    align-items: center; /* Horizontally centers the content */
+    text-align: center;
+}
+
+.card h2 {
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: #000000;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns layout for options */
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    justify-items: center;
+}
+
+/* Option buttons */
+.option {
+    background: rgb(94, 69, 90);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+    width: 160px;
+    margin: 0px 5px;
+
+    /* Center text in option box */
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+}
+
+.option:hover {
+    background: rgba(0, 86, 179, 0.8);
+    transform: scale(1.05);
+}
+
+/* Active card slight scale increase */
+.card.active {
+    z-index: 11;
+    transform: scale(1.05);
+}
+
+/* Hidden class for cards transitioning out */
+.card.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .quiz-container {
+        width: 90%;
+        height: auto; /* Adjusted to auto for responsiveness */
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .option {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .options {
+        grid-template-columns: 1fr; /* Changes to a single column for smaller screens */
+    }
+}

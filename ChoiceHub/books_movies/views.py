@@ -74,6 +74,8 @@ from django.shortcuts import render, redirect
 from .forms import BookPreferenceForm
 from .models import Book
 
+def quiz(request):
+    return render(request, 'quiz.html')
 
 def book_quiz_view(request):
     temp_db1 = list(Book.objects.all())  # Start with all books

@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <!-- Use Django's static tag to link CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-quiz.css' %}?v=2">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="card" id="question1">
+            <h2>What genre are you interested in?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question1')">Philosophy</div>
+                <div class="option" onclick="removeCard('question1')">Art & Architecture</div>
+                <div class="option" onclick="removeCard('question1')">Non-fiction</div>
+                <div class="option" onclick="removeCard('question1')">Art</div>
+                <div class="option" onclick="removeCard('question1')">Biography & Autobiography</div>
+                <div class="option" onclick="removeCard('question1')">Social Science</div>
+                <div class="option" onclick="removeCard('question1')">Fiction</div>
+                <div class="option" onclick="removeCard('question1')">Drama</div>
+                <div class="option" onclick="removeCard('question1')">Science</div>
+                <div class="option" onclick="removeCard('question1')">Music</div>
+                <div class="option" onclick="removeCard('question1')">History</div>
+                <div class="option" onclick="removeCard('question1')">Art History</div>
+                <div class="option" onclick="removeCard('question1')">Education</div>
+                <div class="option" onclick="removeCard('question1')">Poetry</div>
+                <div class="option" onclick="removeCard('question1')">Art Instruction</div>
+                <div class="option" onclick="removeCard('question1')">Photography</div>
+                <div class="option" onclick="removeCard('question1')">Environmental Studies</div>
+                <div class="option" onclick="removeCard('question1')">Self-help</div>
+                <div class="option" onclick="removeCard('question1')">Cultural Studies</div>
+                <div class="option" onclick="removeCard('question1')">Children's Literature</div>
+                <div class="option" onclick="removeCard('question1')">Reference</div>
+                <div class="option" onclick="removeCard('question1')">Travel</div>
+                <div class="option" onclick="removeCard('question1')">Neuroscience</div>
+                <div class="option" onclick="removeCard('question1')">Art Therapy</div>
+            </div>
+        </div>
+        <div class="card" id="question2">
+            <h2>What type of writing style do you prefer?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question2')">Analytical</div>
+                <div class="option" onclick="removeCard('question2')">Descriptive</div>
+                <div class="option" onclick="removeCard('question2')">Narrative</div>
+                <div class="option" onclick="removeCard('question2')">Conversational</div>
+                <div class="option" onclick="removeCard('question2')">Lyric</div>
+                <div class="option" onclick="removeCard('question2')">Technical</div>
+            </div>
+        </div>
+        <div class="card" id="question3">
+            <h2>What type of setting do you prefer?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question3')">Contemporary</div>
+                <div class="option" onclick="removeCard('question3')">Historical</div>
+                <div class="option" onclick="removeCard('question3')">Fairytale</div>
+            </div>
+        </div>
+        <div class="card" id="question4">
+            <h2>What kind of mood are you looking for?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question4')">Reflective</div>
+                <div class="option" onclick="removeCard('question4')">Engaging</div>
+                <div class="option" onclick="removeCard('question4')">Serious</div>
+                <div class="option" onclick="removeCard('question4')">Light-hearted</div>
+                <div class="option" onclick="removeCard('question4')">Thought-provoking</div>
+                <div class="option" onclick="removeCard('question4')">Inspirational</div>
+            </div>
+        </div>
+        <div class="card" id="question5">
+            <h2>What book length do you prefer?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question5')">Short (Under 100 pages)</div>
+                <div class="option" onclick="removeCard('question5')">Medium (100-300 pages)</div>
+                <div class="option" onclick="removeCard('question5')">Long (300-500 pages)</div>
+                <div class="option" onclick="removeCard('question5')">Epic (Over 500 pages)</div>
+            </div>
+        </div>
+        <div class="card" id="question6">
+            <h2>Do you prefer fast-paced or slow-paced books?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question6')">Steady</div>
+                <div class="option" onclick="removeCard('question6')">Fast-paced</div>
+                <div class="option" onclick="removeCard('question6')">Moderate</div>
+            </div>
+        </div>
+        <div class="card" id="question7">
+            <h2>What kind of ending do you prefer?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question7')">Open-ended</div>
+                <div class="option" onclick="removeCard('question7')">Conclusive</div>
+                <div class="option" onclick="removeCard('question7')">Ambiguous</div>
+            </div>
+        </div>
+        <div class="card" id="question8">
+            <h2>What kind of emotional tone do you prefer?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question8')">Thought-provoking</div>
+                <div class="option" onclick="removeCard('question8')">Inspirational</div>
+                <div class="option" onclick="removeCard('question8')">Hopeful</div>
+                <div class="option" onclick="removeCard('question8')">Bittersweet</div>
+                <div class="option" onclick="removeCard('question8')">Joyful</div>
+                <div class="option" onclick="removeCard('question8')">Melancholic</div>
+            </div>
+        </div>
+        <div class="card" id="question9">
+            <h2>What level of romance do you prefer in a book?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question9')">Non-existent</div>
+                <div class="option" onclick="removeCard('question9')">Minimal</div>
+                <div class="option" onclick="removeCard('question9')">Subplot</div>
+                <div class="option" onclick="removeCard('question9')">Complicated</div>
+                <div class="option" onclick="removeCard('question9')">Central to the plot</div>
+            </div>
+        </div>
+        <div class="card" id="question10">
+            <h2>How important is world-building to you?</h2>
+            <div class="options">
+                <div class="option" onclick="removeCard('question10')">Low importance</div>
+                <div class="option" onclick="removeCard('question10')">Moderate importance</div>
+                <div class="option" onclick="removeCard('question10')">High importance</div>
+            </div>
+        </div>
+    </div>
+    <!-- Use Django's static tag to link the JS file -->
+    <script src="{% static 'js/script-quiz.js' %}?v=2"></script>
+</body>
+</html>

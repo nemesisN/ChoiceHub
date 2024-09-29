@@ -25,5 +25,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
-    path('quiz/', book_quiz_view, name='quiz'),
+    # path('quiz/', book_quiz_view, name='quiz'),
+    path('quiz/', views.quiz, name='quiz'),
 ]
